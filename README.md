@@ -33,47 +33,71 @@ Below is an example of Cost grid Matrix, Next optimal lane state matrix and fina
     4. Right most lane has a car at 3 units ahead with speed around 42.5 mph.
     5. Fastest lane should be with the lowest cost value.  
 
-0 		99 		0 
-0 	9.78104 	0 
-0 	9.78104 	0                 ↑   S coordinates 
-0 	9.78104 	0                 →   d coordinates
-0 	9.78104 	99 
-0 	9.78104 	7.47237 
-0 	9.78104 	7.47237 
-0 	9.78104 	7.47237 
-0 	9.78104 	7.47237  <--current location of the subject car
+0 	  99 		  0      
+
+0 	9.78104   0      
+
+0   9.78104 	0                 ↑   S coordinates 
+
+0 	9.78104 	0                  →   d coordinates
+ 
+0   9.78104 	99     
+
+0   9.78104 	7.47237 
+
+0 	9.78104 	7.47237
+
+0   9.78104 	7.47237
+ 
+0   9.78104 	7.47237  <--current location of the subject car
 
 2) Next optimal Lane
 
 Each cell in the matrix below shows the next optimal lane position.
 
 0   0 	2 
+
 0 	0 	2 
+
 0 	0 	2          ↑   S coordinates
+
 0 	0 	2          →   d coordinates     
+
 0 	0 	1 
+
 0 	0 	2          0 --> Left Most lane
+
 0 	0 	2          1 --> Middle Lane
-0 	0	2          2 --> Right Most Lane
-0	0	2 <--  Current location of the subject car
+
+0 	0	  2          2 --> Right Most Lane
+
+0	  0	  2 <--  Current location of the subject car
 
 3) Final Trajectory 
 
 1   0 	0 
-1 	0 	0      
-1 	0 	0          ↑   S coordinates
-1 	0 	0          →   d coordinates
-1 	0 	0          1 --> Indicates final trajectory
-1 	0 	0 
-1 	0 	0 
-1 	0	0      Conclusion : Car should move to the left most lane to follow the optimal trejctory
-0	1	0 <--  Starting current location (Middle lane)
 
-Now since the next optimal action is known, that is whether to move straight or change the lane, decision has to be taken whether to change the lane. Will it be safe to change lanes? Therefore again Sensor data is referred to determine proximity with the other traffic cars specially the cars in the lane where the car intends to move. Accordingly, cars change lanes while keeping a safe distance with other cars. Line : 303 -317
+1 	0 	0      
+
+1 	0 	0          ↑   S coordinates
+
+1 	0 	0          →   d coordinates
+
+1 	0 	0          1 --> Indicates final trajectory
+
+1 	0 	0 
+
+1 	0 	0 
+
+1 	0  	0      Conclusion : Car should move to the left most lane to follow the optimal trejctory
+
+0	  1  	0 <--  Starting current location (Middle lane)
+
+Now since the next optimal action is known, that is whether to move straight or change the lane, decision has to be taken whether to change the lane. Will it be safe to change lanes? Therefore again Sensor data is referred to determine proximity with the other traffic cars specially the cars in the lane where the car intends to move. Accordingly, car changes lanes while keeping a safe distance with other cars. Line : 303 -317
 
 Accelerate or Brake ?
-Also if the lane can not be changed due close proximity to another car on the next  lane and there is a traffic vehicle in the same lane as the lane of the subject car, the car brakes to maintain an appropriate safe distance.Line : 264 -300
+Also if the lane can not be changed due to close proximity of outr car to another car on the next lane the car brakes to maintain an appropriate safe distance with the car immidiately ahead in the same lane, if any.Line : 264 -300
 
 In most of the traffic conditions this code enables the car to successfully shift to the fastest lane.
 
-Further the spline method is used to generate smooth path as recommended.
+Further the spline method is used to generate smooth path.
