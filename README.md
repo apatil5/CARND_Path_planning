@@ -33,23 +33,23 @@ Below is an example of Cost grid Matrix, Next optimal lane state matrix and fina
     4. Right most lane has a car at 3 units ahead with speed around 42.5 mph.
     5. Fastest lane should be with the lowest cost value.  
 
-0 	  99 		  0      
+0---99---0      
 
-0 	9.78104   0      
+0---9.78104---0      
 
-0   9.78104 	0                 ↑   S coordinates 
+0---9.78104---0                 ↑   S coordinates 
 
-0 	9.78104 	0                  →   d coordinates
+0---9.78104---0                  →   d coordinates
  
-0   9.78104 	99     
+0---9.78104---99     
 
-0   9.78104 	7.47237 
+0---9.78104---7.47237 
 
-0 	9.78104 	7.47237
+0---9.78104---7.47237
 
-0   9.78104 	7.47237
- 
-0   9.78104 	7.47237  <--current location of the subject car
+0---9.78104---7.47237
+
+0---9.78104---7.47237  <--current location of the subject car
 
 2) Next optimal Lane
 
